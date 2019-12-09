@@ -299,13 +299,13 @@ const init = async () => {
               fx.getFixerData()
                 .then(function (fxRates) {
                   var rates = utils.extractRates(fxRates, origin, to);
-                    if ( rates ) {
-                      var rate = utils.getRate(rates.from, rates.to);
-                      m.find({ origin: origin, to: to })
-                        .then(function (r) {
-                          if (r[0] == undefined) {
-                            m.insert({ origin: origin, to: to, rate: rate, fee: 0})
-                              .then(function () {
+                  if ( rates ) {
+                    var rate = utils.getRate(rates.from, rates.to);
+                    m.find({ origin: origin, to: to })
+                      .then(function (r) {
+                        if (r[0] == undefined) {
+                          m.insert({ origin: origin, to: to, rate: rate, fee: 0})
+                            .then(function () {
                               res(h.response().code(201))
                             })
                           .catch(function (e) {
@@ -315,12 +315,12 @@ const init = async () => {
                           res(h.response().code(200));
                         }
                       })
-                      .catch(function (e) {
-                        res(h.response().code(500));
-                      });
-		    } else {
-	              res(h.response().code(400));
-		    }
+                    .catch(function (e) {
+                      res(h.response().code(500));
+                    });
+		  } else {
+	            res(h.response().code(400));
+		  }
                 })
               .catch(function (e) {
                 res(h.response().code(500));
