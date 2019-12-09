@@ -55,7 +55,7 @@ const init = async () => {
                     if ( currArr[r[i].origin] == undefined ) {
                       currArr[r[i].origin] = { to: {} };
 	            }
-                    currArr[r[i].origin].to[r[i].to] = { originalRate: r[i].rate, fee: r[i].fee + '%', feeAmount: r[i].rate * (r[i].fee/100), rateWithFee: r[i].rate - (r[i].fee/100) };
+                    currArr[r[i].origin].to[r[i].to] = { originalRate: r[i].rate, fee: r[i].fee + '%', feeAmount: r[i].rate * (r[i].fee/100), rateWithFee: r[i].rate - (r[i].rate * (r[i].fee/100)) };
                   } 
                   res(h.response({ currencies: currArr  }));
                 } else {
@@ -99,7 +99,7 @@ const init = async () => {
                   if (r[0]) {
                     var exchangeArr = [];
                     for (var i = 0; i < r.length; i++) {
-                      exchangeArr.push({ target: r[i].to, originalRate: r[i].rate, fee: r[i].fee + '%', feeAmount: r[i].rate * (r[i].fee/100), rateWithFee: r[i].rate - (r[i].fee/100) });
+                      exchangeArr.push({ target: r[i].to, originalRate: r[i].rate, fee: r[i].fee + '%', feeAmount: r[i].rate * (r[i].fee/100), rateWithFee: r[i].rate - (r[i].rate * (r[i].fee/100)) });
                     }
                     res({ origin: origin, to: exchangeArr });
                   } else {
