@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "4a99b0b9-3d5b-418e-9554-92d6a97503c9",
+		"name": "Settle Challenge Collection",
+		"description": "POSTMAN collection for settle challenge.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pair creation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "ec2-52-67-12-244.sa-east-1.compute.amazonaws.com/pair/create/EURBRL",
+					"host": [
+						"ec2-52-67-12-244",
+						"sa-east-1",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"pair",
+						"create",
+						"EURBRL"
+					]
+				},
+				"description": "/pair/create/{pair}\r\ncreates a pair rate\r\nreturns 200 / 201 \r\n\r\nCreates a pair with current fixer.io rates."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Pair from DB",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "ec2-52-67-12-244.sa-east-1.compute.amazonaws.com/pair/delete/ABCAVC",
+					"host": [
+						"ec2-52-67-12-244",
+						"sa-east-1",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"pair",
+						"delete",
+						"ABCAVC"
+					]
+				},
+				"description": "/pair/delete/{pair}\r\ndeletes a pair rate\r\nreturns 200\r\n\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Set Fee on Pair",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "ec2-52-67-12-244.sa-east-1.compute.amazonaws.com/fee/set/EURUSD/5",
+					"host": [
+						"ec2-52-67-12-244",
+						"sa-east-1",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"fee",
+						"set",
+						"EURUSD",
+						"5"
+					]
+				},
+				"description": "/fee/set/{pair}\r\nsets pair fee\r\nreturns 200\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Reset Fee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "ec2-52-67-12-244.sa-east-1.compute.amazonaws.com/fee/reset/EURUSD",
+					"host": [
+						"ec2-52-67-12-244",
+						"sa-east-1",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"fee",
+						"reset",
+						"EURUSD"
+					]
+				},
+				"description": " /fee/reset/{pair}\r\n resets pair fee to 0%\r\n returns 200\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Check Pair",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "ec2-52-67-12-244.sa-east-1.compute.amazonaws.com/pair/BRLARS",
+					"host": [
+						"ec2-52-67-12-244",
+						"sa-east-1",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"pair",
+						"BRLARS"
+					]
+				},
+				"description": "/pair/{pair}\r\nreturns true if pair exists\r\n{\r\n pair: boolean\r\n}\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Pairs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "ec2-52-67-12-244.sa-east-1.compute.amazonaws.com/pair/all",
+					"host": [
+						"ec2-52-67-12-244",
+						"sa-east-1",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"pair",
+						"all"
+					]
+				},
+				"description": "/pair/all\r\n returns the full pair list\r\n{\r\n  pairs:[\r\n   ´${pair}´\r\n  ]\r\n}\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pair Fee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "ec2-52-67-12-244.sa-east-1.compute.amazonaws.com/fee/EURUSD",
+					"host": [
+						"ec2-52-67-12-244",
+						"sa-east-1",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"fee",
+						"EURUSD"
+					]
+				},
+				"description": "/fee/{pair}\r\nreturns fee of specified pair\r\n{  \r\n  pair:´${pair}´,\r\n  fee:´${fee}%´\r\n}\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Fees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "ec2-52-67-12-244.sa-east-1.compute.amazonaws.com/fee/all",
+					"host": [
+						"ec2-52-67-12-244",
+						"sa-east-1",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"fee",
+						"all"
+					]
+				},
+				"description": "/fee/all\r\nreturns list of existing pairs fees\r\n{ \r\n  fees:[\r\n    {\r\n      pair:´${pair}´,\r\n      fee:´${fee}%´\r\n    }\r\n  ]\r\n}\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Currency Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "ec2-52-67-12-244.sa-east-1.compute.amazonaws.com/currency/EUR",
+					"host": [
+						"ec2-52-67-12-244",
+						"sa-east-1",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"currency",
+						"EUR"
+					]
+				},
+				"description": "/currency/{currency}\r\nreturns detailed currency properties\r\n\r\n{\r\n  origin: ´${origin}´, \r\n  to:[\r\n    {\r\n      target:´${target}´, \r\n      originalRate:´${originalRate}´, \r\n      fee:´${fee}%´, \r\n      feeAmount:´${feeAmount}´,\r\n      rateWithFee:´${rateWithFee}´\r\n    }\r\n  ]\r\n}\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Currencies Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "ec2-52-67-12-244.sa-east-1.compute.amazonaws.com/currency/all",
+					"host": [
+						"ec2-52-67-12-244",
+						"sa-east-1",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"currency",
+						"all"
+					]
+				},
+				"description": "{\r\n    \"currencies\": {\r\n        \"EUR\": {\r\n            \"to\": {\r\n                \"USD\": {\r\n                    \"originalRate\": \"1.105785\",\r\n                    \"fee\": \"10%\",\r\n                    \"feeAmount\": 0.11057850000000001,\r\n                    \"rateWithFee\": 1.005785\r\n                },\r\n                \"ARS\": {\r\n                    \"originalRate\": \"66.238099\",\r\n                    \"fee\": \"0%\",\r\n                    \"feeAmount\": 0,\r\n                    \"rateWithFee\": 66.238099\r\n                },\r\n                \"BRL\": {\r\n                    \"originalRate\": \"4.580050\",\r\n                    \"fee\": \"0%\",\r\n                    \"feeAmount\": 0,\r\n                    \"rateWithFee\": 4.58005\r\n                }\r\n            }\r\n        },\r\n        \"ARS\": {\r\n            \"to\": {\r\n                \"BRL\": {\r\n                    \"originalRate\": \"0.069135\",\r\n                    \"fee\": \"0%\",\r\n                    \"feeAmount\": 0,\r\n                    \"rateWithFee\": 0.069135\r\n                }\r\n            }\r\n        },\r\n        \"BRL\": {\r\n            \"to\": {\r\n                \"ARS\": {\r\n                    \"originalRate\": \"14.464403\",\r\n                    \"fee\": \"0%\",\r\n                    \"feeAmount\": 0,\r\n                    \"rateWithFee\": 14.464403\r\n                }\r\n            }\r\n        }\r\n    }\r\n}"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
